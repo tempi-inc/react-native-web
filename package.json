@@ -1,7 +1,8 @@
 {
   "private": true,
-  "version": "0.11.7",
   "name": "react-native-web-monorepo",
+  "module": "packages/react-native-web/dist/index.js",
+  "main": "packages/react-native-web/dist/cjs/index.js",
   "scripts": {
     "clean": "del-cli ./packages/*/dist",
     "compile": "npm-run-all clean -p \"compile:* -- {@}\" --",
@@ -21,6 +22,7 @@
     "precommit": "lint-staged",
     "prerelease": "yarn test && yarn compile && yarn compile:commonjs",
     "release": "node ./scripts/release/publish.js",
+    "postinstall": "yarn compile:commonjs",
     "postrelease": "yarn benchmarks:release && yarn examples:release && yarn website:release",
     "test": "yarn flow && yarn lint:check && yarn jest --runInBand"
   },
