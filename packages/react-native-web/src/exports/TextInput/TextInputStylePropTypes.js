@@ -9,12 +9,13 @@
 
 import ColorPropType from '../ColorPropType';
 import TextStylePropTypes from '../Text/TextStylePropTypes';
-import { oneOf } from 'prop-types';
+import { oneOf, string } from 'prop-types';
 
 const TextInputStylePropTypes = {
   ...TextStylePropTypes,
   /* @platform web */
   caretColor: ColorPropType,
+  outline: string,
   resize: oneOf(['none', 'vertical', 'horizontal', 'both'])
 };
 
